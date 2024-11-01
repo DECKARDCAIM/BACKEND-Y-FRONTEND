@@ -1,6 +1,8 @@
 <h6 class="navbar-heading text-muted">Gestion</h6>
 <ul class="navbar-nav">
-  @if (auth()->user()->role == 'admin')
+
+
+
           <li class="nav-item  active ">
             <a class="nav-link  active " href="{{ url('home')}}">
               <i class="ni ni-tv-2"></i> Dashboard
@@ -21,25 +23,9 @@
               <i class="fas fa-bed text-success"></i> Pacientes
             </a>
           </li>
-          @elseif (auth()->user()->role == 'doctor')
-          <li class="nav-item">
-            <a class="nav-link " href="{{ url('/pacientes') }}">
-              <i class="ni ni-sound-wave text-success"></i> Gestionar Pacientes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{ url('/pacientes') }}">
-              <i class="fas fa-bed text-success"></i> Citas
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{ url('/pacientes') }}">
-              <i class="fas fa-bed text-success"></i> Pacientes
-            </a>
-          </li>
 
 
-          @endif
+
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
             onclick="event.preventDefault(); document.getElementById('formLogout').submit();"
@@ -52,22 +38,17 @@
           </li>
         </ul>
 
-        @if (auth()->user()->role == 'admin')
+
+
         <!-- Divider -->
         <hr class="my-3">
         <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Reportes</h6>
+        <h6 class="navbar-heading text-muted">DIAGNOSTICOS</h6>
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-books text-default"></i> Citas
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="ni ni-chart-bar-32 text-warning"></i> Desempeño Medico
+            <a class="nav-link" href="{{ url('/consultas')}}">
+              <i class="ni ni-books text-default"></i> Mis diagnosticos
             </a>
           </li>
         </ul>
-        @endif

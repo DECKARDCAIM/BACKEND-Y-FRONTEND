@@ -25,6 +25,7 @@ class User extends Authenticatable
         'address', 
         'phone',
         'role',
+        'specialty',
     ];
 
     /**
@@ -59,4 +60,5 @@ class User extends Authenticatable
     {
         return $query->where('role', 'doctor');
     }
+
 }

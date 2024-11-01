@@ -33,6 +33,18 @@ use Illuminate\Support\Str;
                     </div>
 
                     <div class="form-group">
+    <label for="specialty">Especialidad</label>
+    <select name="specialty" id="specialty" class="form-control" required>
+        <option value="">Seleccione una especialidad</option>
+        @foreach ($specialties as $specialty)
+            <option value="{{ $specialty->name }}" {{ old('specialty') == $specialty->name ? 'selected' : '' }}>
+                {{ $specialty->name }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
+                    <div class="form-group">
                     <label for="description">Correo Electronico</label>
                     <input type="text" name="email" id="description" class="form-control" value="{{ old('email')}}" required>
                     </div>

@@ -27,3 +27,7 @@ Route::resource('medicos', 'App\Http\Controllers\DoctorController');
 
 //Rutas para los pacientes
 Route::resource('pacientes', 'App\Http\Controllers\PatientController');
+
+//Rutas para las consultas
+Route::resource('consultas', 'App\Http\Controllers\AppointmentController');
+Route::get('consultas/{patient}/create', [App\Http\Controllers\AppointmentController::class, 'create'])->name('consultas.create');
