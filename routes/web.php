@@ -10,7 +10,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::resource('specialties', 'SpecialtyController');
+//Rutas para las especialidades
 Route::get('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'index']);
 
 Route::get('/especialidades/create', [App\Http\Controllers\SpecialtyController::class, 'create']);
@@ -20,3 +20,10 @@ Route::post('/especialidades', [App\Http\Controllers\SpecialtyController::class,
 Route::put('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'update']);
 
 Route::delete('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'destroy']);
+
+
+//Rutas para los médicos
+Route::resource('medicos', 'App\Http\Controllers\DoctorController');
+
+//Rutas para los pacientes
+Route::resource('pacientes', 'App\Http\Controllers\PatientController');

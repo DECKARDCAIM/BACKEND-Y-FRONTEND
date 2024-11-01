@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function scopePatients($query)
+    {
+        return $query->where('role', 'paciente');
+    }
+
+    public function scopeDoctors($query)
+    {
+        return $query->where('role', 'doctor');
+    }
 }
