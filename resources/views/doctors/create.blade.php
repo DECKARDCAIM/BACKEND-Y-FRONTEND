@@ -1,3 +1,7 @@
+<?php
+use Illuminate\Support\Str;
+?>
+
 @extends('layouts.panel')
 
 @section('content')
@@ -46,6 +50,11 @@
                     <div class="form-group">
                     <label for="description">Telefono</label>
                     <input type="text" name="phone" id="description" class="form-control" value="{{ old('phone')}}" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="description">Contraseña</label>
+                    <input type="text" name="password" id="description" class="form-control" value="{{ old('password', Str::random(8)) }}" required>
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary">Crear medico</button>
