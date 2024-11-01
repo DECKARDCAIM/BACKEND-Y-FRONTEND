@@ -1,5 +1,6 @@
 <h6 class="navbar-heading text-muted">Gestion</h6>
 <ul class="navbar-nav">
+  @if (auth()->user()->role == 'admin')
           <li class="nav-item  active ">
             <a class="nav-link  active " href="{{ url('home')}}">
               <i class="ni ni-tv-2"></i> Dashboard
@@ -20,6 +21,25 @@
               <i class="fas fa-bed text-success"></i> Pacientes
             </a>
           </li>
+          @elseif (auth()->user()->role == 'doctor')
+          <li class="nav-item">
+            <a class="nav-link " href="{{ url('/pacientes') }}">
+              <i class="ni ni-sound-wave text-success"></i> Gestionar Pacientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ url('/pacientes') }}">
+              <i class="fas fa-bed text-success"></i> Citas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ url('/pacientes') }}">
+              <i class="fas fa-bed text-success"></i> Pacientes
+            </a>
+          </li>
+
+
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
             onclick="event.preventDefault(); document.getElementById('formLogout').submit();"
@@ -31,6 +51,8 @@
             </form>
           </li>
         </ul>
+
+        @if (auth()->user()->role == 'admin')
         <!-- Divider -->
         <hr class="my-3">
         <!-- Heading -->
@@ -48,3 +70,4 @@
             </a>
           </li>
         </ul>
+        @endif
