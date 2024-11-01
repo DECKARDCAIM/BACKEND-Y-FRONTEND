@@ -1,6 +1,7 @@
 @extends('layouts.form')
 
 @section('tittle', 'Registrate')
+
 @section('content')
 <!-- Page content -->
 <div class="container mt--8 pb-5">
@@ -28,7 +29,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nombre Completo" type="text">
+                    <input class="form-control" placeholder="Nombre Completo" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                   </div>
                 </div>
                 <div class="form-group">
@@ -36,7 +37,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email" name="Correo Electronico" value="{{ old('email') }}" required autocomplete="email">
+                    <input class="form-control" placeholder="Correo Electronico" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
                   </div>
                 </div>
                 <div class="form-group">
