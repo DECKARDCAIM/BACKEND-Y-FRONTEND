@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Cristoffer Falla',
             'email' => 'falla3235@hotmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('12345678'),
+            'password' => bcrypt('CAllofduty123@%'),
             'dpi' => '3051507150201',
             'address' => 'Guatemala, Guastatoya, El Progreso',
             'phone' => '502 33029117',

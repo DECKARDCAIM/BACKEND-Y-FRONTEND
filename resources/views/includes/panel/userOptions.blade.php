@@ -2,19 +2,19 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Bienvenidos</h6>
               </div>
-              <a href="#" class="dropdown-item">
+              <a href="{{ url('home')}}" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>Mi perfil</span>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="{{ url('home')}}" class="dropdown-item">
                 <i class="ni ni-settings-gear-65"></i>
                 <span>Configuraciones</span>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="{{ url('home')}}" class="dropdown-item">
                 <i class="ni ni-calendar-grid-58"></i>
                 <span>Mis citas</span>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="{{ url('home')}}" class="dropdown-item">
                 <i class="ni ni-support-16"></i>
                 <span>Ayuda</span>
               </a>
