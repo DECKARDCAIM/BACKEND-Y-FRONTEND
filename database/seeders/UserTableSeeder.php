@@ -13,19 +13,22 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Cristoffer Falla',
-            'email' => 'falla3235@hotmail.com',
-            'email_verified_at' => now(),
-            'password' => bcrypt('CAllofduty123@%'),
-            'dpi' => '3051507150201',
-            'address' => 'Guatemala, Guastatoya, El Progreso',
-            'phone' => '502 33029117',
-            'role' => 'admin',
+        // Verificar si el usuario admin ya existe
+        if (!User::where('email', 'falla3235@hotmail.com')->exists()) {
+            User::create([
+                'name' => 'Cristoffer Falla',
+                'email' => 'falla3235@hotmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('CAllofduty123@%'),
+                'dpi' => '3051507150201',
+                'address' => 'Guatemala, Guastatoya, El Progreso',
+                'phone' => '502 33029117',
+                'role' => 'admin',
             ]);
+        }
 
-        User::factory()
-            ->count(50)
-            ->create();
+        // Crear otros 50 usuarios con datos generados aleatoriamente
+        User::factory()->count(50)->create();
     }
+
 }
