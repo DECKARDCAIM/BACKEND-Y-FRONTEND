@@ -6,24 +6,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
     protected static ?string $password;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
 {
-    // Define las especialidades en un array
+    // AQUI SE LISTAN LAS ESPACIALIDADES MEDICAS QUEMADAS
     $especialidades = [
         'Cardiología', 'Dermatología', 'Neurología', 'Ginecología', 'Pediatría', 
         'Oftalmología', 'Psiquiatría', 'Urología', 'Endocrinología', 'Oncología', 
@@ -31,11 +20,12 @@ class UserFactory extends Factory
         'Nefrología'
     ];
     
-    // Asigna el rol aleatorio (doctor o paciente)
+    // AQUI SE GENERAN LOS SEEDERS TANTO DE DOCTORES Y PACIENTES CON SUS RESPECTIVOS CAMPOS
     $role = $this->faker->randomElement(['doctor', 'paciente']);
 
     return [
         'name' => $this->faker->name(),
+        'lastname' => $this->faker->name(),
         'email' => $this->faker->unique()->safeEmail(),
         'email_verified_at' => now(),
         'password' => static::$password ??= Hash::make('password'),
@@ -44,15 +34,12 @@ class UserFactory extends Factory
         'address' => $this->faker->address(),
         'phone' => $this->faker->tollFreePhoneNumber(),
         'role' => $role,
-        // Si el rol es doctor, asigna una especialidad aleatoria
+
+        // AQUI INGRESA AL CAMPO DE ESPECIALIDAD MEDICA SI ES DOCTOR O NULL SI ES PACIENTE
         'specialty' => $role === 'doctor' ? $this->faker->randomElement($especialidades) : null,
     ];
 }
 
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [

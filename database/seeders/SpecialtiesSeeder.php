@@ -9,6 +9,7 @@ class SpecialtiesSeeder extends Seeder
 {
     public function run(): void
     {
+        // AQUI SE CREAN LAS ESPECIALIDADES
         $specialties = [
             ['name' => 'Pediatría', 'description' => 'Especialidad que se ocupa de la salud de los niños y adolescentes, desde el nacimiento hasta los 18 años aproximadamente.'],
             ['name' => 'Cardiología', 'description' => 'Especialidad dedicada al estudio y tratamiento de las enfermedades del corazón y del sistema circulatorio.'],
@@ -26,7 +27,6 @@ class SpecialtiesSeeder extends Seeder
             ['name' => 'Neumología', 'description' => 'Estudio y tratamiento de enfermedades del sistema respiratorio, como asma y EPOC.'],
             ['name' => 'Infectología', 'description' => 'Especialidad centrada en el estudio y tratamiento de enfermedades infecciosas causadas por bacterias, virus y parásitos.']
         ];
-
         foreach ($specialties as $specialty) {
             Specialty::create($specialty);
         }

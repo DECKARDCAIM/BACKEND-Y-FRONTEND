@@ -8,15 +8,13 @@ use App\Models\User;
 
 class UserTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Verificar si el usuario admin ya existe
+        // AQUI SE VALIDA SI EL USUARIO ADMINISTRADOR EXISTE
         if (!User::where('email', 'falla3235@hotmail.com')->exists()) {
             User::create([
-                'name' => 'Cristoffer Falla',
+                'name' => 'Cristoffer',
+                'lastname' => 'Falla', 
                 'email' => 'falla3235@hotmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('CAllofduty123@%'),
@@ -27,8 +25,9 @@ class UserTableSeeder extends Seeder
             ]);
         }
 
-        // Crear otros 50 usuarios con datos generados aleatoriamente
+        // AQUI SE INYECTAN 50 USUARIOS AL SISTEMA DE FORMA ALEATORIA
         User::factory()->count(50)->create();
+        
     }
 
 }

@@ -27,6 +27,8 @@ class PatientController extends Controller
         $messages = [
             'name.required' => 'Es necesario ingresar un nombre.',
             'name.min' => 'El nombre debe tener al menos 3 caracteres.',
+            'lastname.required' => 'Es necesario ingresar un nombre.',
+            'lastname.min' => 'El nombre debe tener al menos 3 caracteres.',
             'email.required' => 'Es necesario ingresar un email.',
             'email.email' => 'El email no es válido.',
             'email.unique' => 'El email ya se encuentra registrado.',
@@ -37,6 +39,7 @@ class PatientController extends Controller
         ];
         $rules = [
             'name' => 'required|min:3',
+            'lastname' => 'required', // Validación del apellido
             'email' => 'required|email|unique:users',
             'dpi' => 'required|min:13',
             'address' => 'required',
@@ -45,7 +48,7 @@ class PatientController extends Controller
         $this->validate($request, $rules, $messages);
 
         $user = User::create(
-            $request->only('name', 'email', 'dpi', 'address', 'phone')
+            $request->only('name', 'lastname', 'email', 'dpi', 'address', 'phone')
             + [
                 'role' => 'paciente',
                 'password' => bcrypt($request->input('password'))
@@ -81,6 +84,8 @@ class PatientController extends Controller
         $messages = [
             'name.required' => 'Es necesario ingresar un nombre.',
             'name.min' => 'El nombre debe tener al menos 3 caracteres.',
+            'lastname.required' => 'Es necesario ingresar un nombre.',
+            'lastname.min' => 'El nombre debe tener al menos 3 caracteres.',
             'email.required' => 'Es necesario ingresar un email.',
             'email.email' => 'El email no es válido.',
             'email.unique' => 'El email ya se encuentra registrado.',
@@ -91,6 +96,7 @@ class PatientController extends Controller
         ];
         $rules = [
             'name' => 'required|min:3',
+            'lastname' => 'required', // Validación del apellido
             'email' => 'required|email',
             'dpi' => 'required|min:13',
             'address' => 'required',
@@ -99,7 +105,7 @@ class PatientController extends Controller
         $this->validate($request, $rules, $messages);
         $user = User::patients()->findOrFail($id);
 
-        $data = $request->only('name', 'email', 'dpi', 'address', 'phone');
+        $data = $request->only('name', 'lastname', 'email', 'dpi', 'address', 'phone');
         $password = $request->input('password');
         if ($password)
             $data['password'] = bcrypt($password);

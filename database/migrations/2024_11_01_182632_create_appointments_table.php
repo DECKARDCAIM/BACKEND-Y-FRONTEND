@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained('users'); // Relación con pacientes
-            $table->foreignId('doctor_id')->constrained('users'); // Relación con doctores
+            $table->foreignId('patient_id')->constrained('users');
+            $table->foreignId('doctor_id')->constrained('users');
             $table->date('appointment_date');
             $table->text('description');
             $table->timestamps();
